@@ -1,0 +1,28 @@
+{
+  "name": "socket",
+  "version": "1.0.0",
+  "description": "Use example of socket with nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "keywords": [
+    "socket",
+    "socket.io",
+    "example",
+    "nodejs",
+    "node",
+    "javascript",
+    "js"
+  ],
+  "author": "Thiago de Sousa",
+  "license": "MIT",
+  "dependencies": {
+    "connect": "^3.7.0",
+    "server-static": "^2.0.5",
+    "socket.io": "^3.0.3"
+  },
+  "devDependencies": {
+    "jasmine": "^3.6.3"
+  }
+}
