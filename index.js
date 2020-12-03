@@ -16,6 +16,11 @@ const io = socket(server);
 
 io.on('connection', (request) => {
   console.log('Connect');
+
+  io.on('new message', (event) => {
+    console.log('New message', event);
+    io.emit('new message from server', event);
+  });
 });
 
 // Start server and set to listen port 8080
