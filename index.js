@@ -10,6 +10,14 @@ const root = (req, res) => {
 };
 // Create server
 const server = require('http').createServer(root);
+
+// Create Socket instance
+const io = socket(server);
+
+io.on('connection', (request) => {
+  console.log('Connect');
+});
+
 // Start server and set to listen port 8080
 server.listen(8080, () => {
   console.log('Start server in http://localhost:8080/');
