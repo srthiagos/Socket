@@ -21,6 +21,10 @@ io.on('connection', (request) => {
     console.log('New message', event);
     io.emit('new message from server', event);
   });
+
+  io.on('new message from client', (event) => {
+    console.log('Recive data from client', event);
+  });
 });
 
 // Start server and set to listen port 8080
