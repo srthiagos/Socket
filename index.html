@@ -1,1 +1,37 @@
-<h1>Hello Wolrd</h1>
+<html>
+
+<head>
+  <title>Socket.io</title>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.1/socket.io.min.js"></script>
+</head>
+
+<body>
+</body>
+<footer>
+  <script>
+    const socket = io({
+      reconnection: true,
+      autoConnect: true
+    });
+
+    socket.on("connection", (socket) => {
+      console.log("Connection");
+    });
+
+    socket.on("new message from server", (event) => {
+      console.log("Evento recebido do servidor");
+    });
+
+    function sendEvent() {
+      console.log("here")
+      socket.emit("new message from client", (event) => {
+        console.log("Evento enviado para o servidor", event);
+      });
+    }
+    sendEvent();
+  </script>
+</footer>
+
+</html>
