@@ -14,16 +14,25 @@ const server = require('http').createServer(root);
 // Create Socket instance
 const io = socket(server);
 
-io.on('connection', (request) => {
+/**
+ * Start a session of socket when client try connect
+ */
+io.on('connection', (socket) => {
   console.log('Connect');
 
-  io.on('new message', (event) => {
-    console.log('New message', event);
-    io.emit('new message from server', event);
+  /**
+   * Listen events from client, and submit backend response
+   */
+  socket.on('new message from client', (event) => {
+    console.log('Recive data from client', event);
+    socket.emit('new message from server', event);
   });
 
-  io.on('new message from client', (event) => {
-    console.log('Recive data from client', event);
+  /**
+   * Display disconnect reason
+   */
+  socket.on('disconnect', (reason) => {
+    console.log('Disconnect reason', reason);
   });
 });
 
